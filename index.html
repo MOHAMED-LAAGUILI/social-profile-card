@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- displays site properly based on user's device -->
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/user.jpg" />
+
+  <!-- Custom stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/loader/1.0.1/loader.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/preloader/1.0.1/preloader.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tree-shaker/1.0.1/tree-shaker.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.2.3/particles.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+  <title>MOHAMED LAAGUILI | Social links profile</title>
+</head>
+
+<body>
+  <main>
+    <div class="card">
+      <div class="card__header">
+        <div class="card__image">
+          <img src="assets/images/user.jpg" alt="avatar" class="animate__animated animate__fadeIn" />
+        </div>
+        <div class="card__details">
+          <h1 class="animate__animated animate__fadeInUp">MOHAMED LAAGUILI</h1>
+
+          <p class="animate__animated animate__fadeInDown">Morocco</p>
+        </div>
+        <p class="card__quote animate__animated animate__fadeInLeft">"Full stack developer with MERN"
+
+        </p>
+      </div>
+      <div class="card__body">
+        <ul>
+          <li><a href="" class="animate__animated animate__fadeInRight">Portfolio</a></li>
+          <li><a href="https://github.com/MOHAMED-LAAGUILI" class="animate__animated animate__fadeInRight">GitHub</a></li>
+          <li><a href="" class="animate__animated animate__fadeInRight">LinkedIn</a></li>
+          <li><a href="https://api.whatsapp.com/send?phone=YOUR_PHONE_NUMBER" target="_blank" class="animate__animated animate__fadeInRight">Whatsapp</a></li>
+          <li>
+            <li class="animate__animated animate__fadeInRight">Download CV</li>
+            <ul>
+              <li><a href="cv_fr.pdf" download="CV_FR.pdf" id="download-fr" class="animate__animated animate__fadeInRight">FR</a></li>
+              <li><a href="cv_en.pdf" download="CV_EN.pdf" id="download-en" class="animate__animated animate__fadeInRight">EN</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </main>
+
+  <footer class="attribution">
+    <p>
+      </a>😁 Coded by <a href="https://github.com/MOHAMED-LAAGUILI">MOHAMED</a> with 🥰.
+    </p>
+  </footer>
+
+  <!-- Preloader -->
+  <div id="preloader">
+    <div class="loader">
+      <div class="loader__inner"></div>
+    </div>
+  </div>
+
+  <!-- Particles.js container -->
+  <div id="particles-js"></div>
+
+  <!-- Three.js scene -->
+  <div id="three-js-scene"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animate.css /4.1.1/animate.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/loader/1.0.1/loader.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/preloader/1.0.1/preloader.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tree-shaker/1.0.1/tree-shaker.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.2.3/particles.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+
+  <script>
+    AOS.init();
+
+    document.getElementById('download-fr').addEventListener('click', function() {
+      Swal.fire({
+        title: 'CV Downloaded!',
+        text: 'Your CV has been downloaded successfully!',
+        icon: 'success',
+        confirmButtonText: 'OK'
+      });
+    });
+
+    document.getElementById('download-en').addEventListener('click', function() {
+      Swal.fire({
+        title: 'CV Downloaded!',
+        text: 'Your CV has been downloaded successfully!',
+        icon: 'success',
+        confirmButtonText: 'OK'
+      });
+    });
+
+    // Typed.js effect
+    var typed = new Typed('.card__quote', {
+      strings: ['"Full stack developer with MERN"', '"Frontend developer with React"'],
+      typeSpeed: 40,
+      backSpeed: 40,
+      loop: true
+    });
+
+    // Preloader
+    var preloader = document.getElementById('preloader');
+    window.addEventListener('load', function() {
+      preloader.style.display = 'none';
+    });
+
+    // Particles.js
+    particlesJS.load('particles-js', 'assets/particlesjs-config.json');
+
+    // Three.js
+    var scene = new THREE.Scene();
+    var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    var renderer = new THREE.WebGLRenderer({
+      canvas: document.getElementById('three-js-scene'),
+      antialias: true
+    });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+
+    var geometry = new THREE.SphereGeometry(1, 60, 60);
+    var material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
+    var sphere = new THREE.Mesh(geometry, material);
+    scene.add(sphere);
+
+    camera.position.z = 5;
+
+    function animate() {
+      requestAnimationFrame(animate);
+      renderer.render(scene, camera);
+    }
+    animate();
+  </script>
+</body>
+
+</html>
