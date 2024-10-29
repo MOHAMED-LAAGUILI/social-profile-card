@@ -1,0 +1,10 @@
+frontend:
+    path: ./
+    publish: ""
+    scripts:
+        build: ""
+        deploy: ""
+    subdomain: social-profile-card
+name: social-profile-card
+region: us-east-1
+yamlVersion: 2
