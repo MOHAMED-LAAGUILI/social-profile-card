@@ -4,7 +4,7 @@ frontend:
     scripts:
         build: ""
         deploy: ""
-    subdomain: social-profile-card
-name: social-profile-card
+    subdomain: LAAGUILI-DEV
+name: LAAGUILI-DEV
 region: us-east-1
 yamlVersion: 2
