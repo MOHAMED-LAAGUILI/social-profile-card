@@ -1,3 +1,13 @@
 name: laaguili
 region: us-east-1
 yamlVersion: 2
+frontend:
+  path: ./  # Path to your project folder, where your index.html is located
+  publish: ./  # Where the built project should be published (same as path if no build step)
+  scripts:
+    build: ""  # No build step for a static site
+    deploy: "echo 'No deployment command needed'"  # Static site, no special deploy command
+  subdomain: laaguili  # Custom subdomain for your site (if applicable)
+name: laaguili  # Name of the project
+region: us-east-1  # Region where you want to deploy (you can leave this as is for now)
+yamlVersion: 2  # Make sure to use the latest version of the config
