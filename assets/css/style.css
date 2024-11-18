@@ -1,168 +1,192 @@
-   /* Custom styles for the card and animation */
-   body {
-    background-color: #f8f9fa;
-    overflow: hidden; /* Prevent scroll due to animation */
-    position: relative; /* Set relative positioning for icon placement */
-  }
-
-  .card {
-    position: relative;
-    z-index: 2; /* Ensure the card is on top of the animated objects */
-    max-width: 400px; /* Set a max width for the card */
-  }
-
-  .tech-icon {
-    position: absolute;
-    width: 70px; /* Increased icon size */
-    height: 70px;
-    opacity: 0.7; /* Icon opacity */
-    animation: float 5s ease-in-out infinite;
-  }
-
-  @keyframes float {
-    0% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(-20px); /* Float up */
-    }
-    100% {
-      transform: translateY(0);
-    }
-  }
-
-  /* Responsive adjustments */
-  @media (max-width: 576px) {
-    .card {
-      width: 90%;
-      margin: auto; /* Center card on small screens */
-    }
-
-    .tech-icon {
-      width: 50px; /* Smaller size on mobile */
-      height: 50px;
-    }
-  }
-
-  body {
-    background-color: #f8f9fa; /* Soft background color */
-    font-family: Arial, sans-serif;
+/* General Body Styling */
+body {
+  background-color: #0b0d13; /* Dark background for the whole page */
+  color: #fff; /* White text */
+  font-family: 'Roboto', sans-serif;
+  overflow: hidden; /* Prevent scroll due to animation */
+  position: relative; /* Set relative positioning for icon placement */
+  transition: all 0.3s ease-in-out; /* Smooth transition for background and color changes */
+  z-index: 1; /* Make sure body content is behind elements like card */
 }
 
-.call-button, .navbar-brand {
-    transition: all 0.3s ease; /* Smooth transitions */
+/* Card Styling */
+.card {
+  position: relative;
+  z-index: 2; /* Ensure card stays on top of other elements */
+  max-width: 400px; /* Set a max width for the card */
+  background: rgba(255, 255, 255, 0.15); /* Slightly darker transparent background */
+  border-radius: 16px; /* Softer rounded corners */
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.25); /* Soft and deep shadow */
+  transition: all 0.3s ease-in-out; /* Smooth transition on hover */
+  backdrop-filter: blur(15px); /* Glassmorphism effect */
 }
 
+.card:hover {
+  transform: translateY(-10px); /* Hover effect: move card up */
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.35); /* Enhanced shadow on hover */
+}
+
+/* Quote Text */
+.card__quote {
+  color: #6c757d; /* Lighter text for quotes */
+}
+
+/* Tech Icon Styling */
+.tech-icon {
+  position: absolute;
+  width: 70px;  /* Icon size */
+  height: 70px;
+  opacity: 0.8; /* Slightly more visible icons */
+  animation: floatRandom 20s infinite ease-in-out, fadeInOut 8s infinite ease-in-out;
+  transition: opacity 1s ease-in-out; /* Smooth opacity change */
+}
+
+.tech-icon img {
+  width: 50px; /* Set fixed size for images */
+  transition: transform 0.3s ease-in-out; /* Smooth scaling on hover */
+}
+
+.tech-icon img:hover {
+  transform: scale(1.15); /* Scale icon on hover */
+}
+
+/* Floating and Fading Animation */
+@keyframes floatRandom {
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(60px, -40px);
+  }
+  50% {
+    transform: translate(-40px, 60px);
+  }
+  75% {
+    transform: translate(50px, -60px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes fadeInOut {
+  0%, 100% {
+    opacity: 0;
+  }
+  10%, 90% {
+    opacity: 1;
+  }
+}
+
+/* Button and Navbar Styling */
 .call-button {
-    padding: 12px 20px; /* Increased padding */
-    border-radius: 8px; /* Softer corners */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+  padding: 14px 22px; /* Increased padding for buttons */
+  border-radius: 10px; /* Softer rounded corners */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+  background-color: #007bff; /* Primary button color */
+  transition: all 0.3s ease; /* Smooth transition for buttons */
 }
 
 .call-button:hover {
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
-    transform: translateY(-2px); /* Slight lift effect */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+  transform: translateY(-3px); /* Slight lift effect */
+  background-color: #0056b3; /* Darker blue on hover */
 }
 
+/* Navbar Styling */
 .navbar {
-    border-radius: 8px; /* Softer corners for navbar */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow for navbar */
-}
-
-.navbar-toggler {
-    border: none; /* Remove border from toggler */
+  background-color: rgba(0, 0, 0, 0.5); /* Dark background with some transparency */
+  border-radius: 10px; /* Softer corners */
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15); /* Subtle shadow */
 }
 
 .navbar-nav .nav-link {
-    transition: color 0.3s ease; /* Smooth color transition for links */
+  transition: color 0.3s ease; /* Smooth color transition for links */
+  font-weight: bold;
 }
 
 .navbar-nav .nav-link:hover {
-    color: #007bff; /* Change link color on hover */
+  color: #007bff; /* Change link color on hover */
 }
 
-  .image-effect {
-      transition: transform 0.3s; /* Smooth scaling effect */
-    }
-  
-    .image-effect:hover {
-      transform: scale(1.05); /* Scale the image on hover */
-    }
-  
-    .online-badge {
-      top: 5px; /* Adjust position to top */
-      right: 5px; /* Adjust position to right */
-      width: 20px; /* Width of the circle */
-      height: 20px; /* Height of the circle */
-      background-color: #28a745; /* Green color */
-      border-radius: 50%; /* Make it round */
-      animation: heartbeat 1s infinite; /* Heartbeat animation */
-      box-shadow: 0 0 0 rgba(0, 255, 0, 0.5); /* Initial shadow */
-    }
-  
-    @keyframes heartbeat {
-      0%, 100% {
-        transform: scale(1);
-        box-shadow: 0 0 0 rgba(0, 255, 0, 0.5);
-      }
-      50% {
-        transform: scale(1.3);
-        box-shadow: 0 0 20px rgba(0, 255, 0, 0.8); /* Glow effect */
-      }
-    }
-  
-    .morocco-flag {
-      font-size: 24px; /* Adjust size of flag emoji */
-    }
+/* Image Hover Effect */
+.image-effect {
+  transition: transform 0.3s ease-in-out; /* Smooth scaling effect */
+}
 
+.image-effect:hover {
+  transform: scale(1.05); /* Scale image on hover */
+}
 
+/* Online Badge Animation */
+.online-badge {
+  top: 5px; /* Position it at the top-right */
+  right: 5px;
+  width: 18px;
+  height: 18px;
+  background-color: #28a745; /* Green color */
+  border-radius: 50%; /* Circle shape */
+  animation: heartbeat 1s infinite; /* Heartbeat animation */
+  box-shadow: 0 0 0 rgba(0, 255, 0, 0.5); /* Initial shadow */
+}
 
-/* Tech images Floating*/
-.tech-icon {
-    position: absolute;
-    animation: floatRandom 20s infinite ease-in-out, fadeInOut 8s infinite ease-in-out;
-    opacity: 0; /* Start hidden */
-    transition: opacity 2s ease-in-out;
+@keyframes heartbeat {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 rgba(0, 255, 0, 0.5);
   }
-  .tech-icon img { width: 50px; } 
+  50% {
+    transform: scale(1.3);
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.8); /* Glow effect */
+  }
+}
 
-  @keyframes fadeInOut {
-    0%, 100% {
-      opacity: 0;
-    }
-    10%, 90% {
-      opacity: 1;
-    }
-  }
-  
-  @keyframes floatRandom {
-    0% {
-      transform: translate(0, 0);
-    }
-    25% {
-      transform: translate(50px, -30px);
-    }
-    50% {
-      transform: translate(-30px, 50px);
-    }
-    75% {
-      transform: translate(30px, -50px);
-    }
-    100% {
-      transform: translate(0, 0);
-    }
-  }
-  
+/* Stars Background */
+#starsCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Keep the background behind content */
+}
 
-  /**
-  stars bg moving style
-  */
-  #starsCanvas {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
+/* Responsive Adjustments */
+@media (max-width: 576px) {
+  .card {
+    width: 90%;
+    margin: auto; /* Center card on small screens */
   }
-  
+
+  .tech-icon {
+    width: 50px; /* Smaller size for mobile */
+    height: 50px;
+  }
+
+  .call-button {
+    font-size: 14px; /* Smaller buttons on mobile */
+    padding: 12px 18px; /* Adjust padding */
+  }
+}
+
+/* Make sure images don't have a background behind them */
+.image-container {
+  position: relative; /* Ensure that images have proper positioning */
+  z-index: 1; /* Keep them above other elements */
+  overflow: visible; /* Allow images to be fully visible without clipping */
+}
+
+/* Remove background behind images */
+
+/* Remove box shadow from images and icons */
+img, .tech-icon {
+  box-shadow: none !important; /* Remove any shadow effect */
+  transition: box-shadow 0.3s ease, transform 0.3s ease; /* Smooth transition */
+}
+
+/* Optional: Remove box-shadow on hover if it was applied previously */
+img:hover, .tech-icon:hover {
+  box-shadow: none !important;
+  transform: none;
+}
+
