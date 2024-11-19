@@ -1,3 +1,8 @@
 name: laaguili
 region: us-east-1
 yamlVersion: 2
+
+# Define the deployment as a static site
+frontend:
+  sourceDirectory: ./  # This should be the directory containing your HTML, CSS, JS files
+  # If your files are located in a subfolder (e.g., "public"), you can change this to "public"
