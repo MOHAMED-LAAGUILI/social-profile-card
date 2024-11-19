@@ -1,0 +1,229 @@
+/* General Body Styling */
+body {
+  background-color: #0b0d13; /* Dark space background */
+  color: #fff; /* White text */
+  font-family: 'Roboto', sans-serif;
+  overflow: hidden; /* Prevent scroll due to animation */
+  position: relative;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Card Styling */
+.card {
+  position: relative;
+  z-index: 2;
+  max-width: 400px;
+  background: rgba(255, 255, 255, 0.1) !important; /* Transparent dark background */
+  border-radius: 16px;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.4); /* Deeper shadow */
+  backdrop-filter: blur(10px); /* Glassmorphism effect */
+  border: 1px solid rgba(255, 255, 255, 0.2); /* Light border */
+  transition: all 0.3s ease-in-out;
+}
+
+.card__quote {
+  color: #f8f8f8; /* Slightly lighter color for quotes */
+}
+
+/* Tech Icon Styling */
+.tech-icon {
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  opacity: 0.8;
+  animation: floatRandom 20s infinite ease-in-out, fadeInOut 8s infinite ease-in-out;
+  transition: opacity 1s ease-in-out;
+}
+
+.tech-icon img {
+  width: 50px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.tech-icon img:hover {
+  transform: scale(1.15); /* Hover effect on icons */
+}
+
+/* Floating and Fading Animation */
+@keyframes floatRandom {
+  0% { transform: translate(0, 0); }
+  25% { transform: translate(60px, -40px); }
+  50% { transform: translate(-40px, 60px); }
+  75% { transform: translate(50px, -60px); }
+  100% { transform: translate(0, 0); }
+}
+
+@keyframes fadeInOut {
+  0%, 100% { opacity: 0; }
+  10%, 90% { opacity: 1; }
+}
+
+/* Button Styling */
+.call-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 24px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #1a73e8, #6a1dff); /* Gradient background */
+  color: #fff;
+  font-weight: 600;
+  font-size: 16px;
+  text-transform: uppercase;
+  text-decoration: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  position: relative;
+  transition: all 0.3s ease;
+  overflow: hidden; /* Prevent border overflow */
+}
+
+.call-button i {
+  margin-right: 10px;
+  transition: transform 0.3s ease; /* Icon scale transition */
+}
+
+.call-button:hover {
+  transform: translateY(-5px); /* Slight elevation effect */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(135deg, #0288d1, #9c1aff); /* Slightly darker gradient */
+}
+
+.call-button:hover i {
+  transform: scale(1.1); /* Scale icon on hover */
+}
+
+.call-button:active {
+  transform: translateY(2px); /* Slight depress effect when clicked */
+}
+
+.call-button:hover {
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.6), 0 0 15px rgba(0, 123, 255, 0.7); /* Glowing effect */
+}
+
+/* Subtle Glow Effect for Text */
+.call-button span {
+  position: relative;
+}
+
+.call-button span:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 3px;
+  background: #000000;
+  transform: scaleX(0);
+  transition: transform 0.4s ease;
+}
+
+.call-button:hover span:after {
+  transform: scaleX(1); /* Activate glowing underline on hover */
+}
+
+.call-button i {
+  font-size: 18px;
+  transition: color 0.3s ease;
+}
+
+.call-button:hover i {
+  color: #000000; /* Change icon color to match glowing effect */
+}
+
+/* Navbar Styling */
+.navbar {
+  background-color: rgba(0, 0, 0, 0.7); /* Dark, semi-transparent background */
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+.navbar-nav .nav-link {
+  color: #f1f1f1; /* Light text for links */
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #1a73e8; /* Cosmic blue on hover */
+}
+
+/* Image Hover Effect */
+.image-effect {
+  transition: transform 0.3s ease-in-out;
+}
+
+.image-effect:hover {
+  transform: scale(1.08); /* Subtle scale effect on hover */
+}
+
+/* Online Badge Animation */
+.online-badge {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 18px;
+  height: 18px;
+  background-color: #28a745;
+  border-radius: 50%;
+  animation: heartbeat 1s infinite;
+  box-shadow: 0 0 0 rgba(0, 255, 0, 0.5);
+}
+
+@keyframes heartbeat {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 rgba(0, 255, 0, 0.5);
+  }
+  50% {
+    transform: scale(1.3);
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.8);
+  }
+}
+
+/* Stars Background Animation */
+#starsCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: url('assets/images/stars-background.jpg') no-repeat center center fixed;
+  background-size: cover;
+  animation: movingStars 100s linear infinite;
+}
+
+@keyframes movingStars {
+  0% { background-position: 0 0; }
+  100% { background-position: -1000px 0; }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 576px) {
+  .card {
+    width: 90%;
+    margin: auto;
+  }
+
+  .tech-icon {
+    width: 50px;
+    height: 50px;
+  }
+
+  .call-button {
+    font-size: 14px;
+    padding: 12px 18px;
+  }
+}
+
+/* Remove Box Shadow on Hover for Images and Tech Icons */
+img, .tech-icon {
+  box-shadow: none !important;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+img:hover, .tech-icon:hover {
+  box-shadow: none !important;
+  transform: none;
+}
+

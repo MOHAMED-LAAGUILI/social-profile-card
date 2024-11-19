@@ -1,0 +1,17 @@
+/* Card Styling */
+.card {
+    position: relative;
+    z-index: 2;
+    max-width: 400px;
+    background: rgba(255, 255, 255, 0.1) !important; /* Transparent dark background */
+    border-radius: 16px;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.4); /* Deeper shadow */
+    backdrop-filter: blur(10px); /* Glassmorphism effect */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Light border */
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .card__quote {
+    color: #f8f8f8; /* Slightly lighter color for quotes */
+  }
+  

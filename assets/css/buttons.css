@@ -1,0 +1,72 @@
+/* Button Styling */
+.call-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 24px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #1a73e8, #6a1dff); /* Gradient background */
+    color: #fff;
+    font-weight: 600;
+    font-size: 16px;
+    text-transform: uppercase;
+    text-decoration: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    position: relative;
+    transition: all 0.3s ease;
+    overflow: hidden; /* Prevent border overflow */
+  }
+  
+  .call-button i {
+    margin-right: 10px;
+    transition: transform 0.3s ease; /* Icon scale transition */
+  }
+  
+  .call-button:hover {
+    transform: translateY(-5px); /* Slight elevation effect */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(135deg, #0288d1, #9c1aff); /* Slightly darker gradient */
+  }
+  
+  .call-button:hover i {
+    transform: scale(1.1); /* Scale icon on hover */
+  }
+  
+  .call-button:active {
+    transform: translateY(2px); /* Slight depress effect when clicked */
+  }
+  
+  .call-button:hover {
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.6), 0 0 15px rgba(0, 123, 255, 0.7); /* Glowing effect */
+  }
+  
+  /* Subtle Glow Effect for Text */
+  .call-button span {
+    position: relative;
+  }
+  
+  .call-button span:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 3px;
+    background: #000000;
+    transform: scaleX(0);
+    transition: transform 0.4s ease;
+  }
+  
+  .call-button:hover span:after {
+    transform: scaleX(1); /* Activate glowing underline on hover */
+  }
+  
+  .call-button i {
+    font-size: 18px;
+    transition: color 0.3s ease;
+  }
+  
+  .call-button:hover i {
+    color: #000000; /* Change icon color to match glowing effect */
+  }
+  
