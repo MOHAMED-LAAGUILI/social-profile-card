@@ -1,10 +1,3 @@
-frontend:
-  path: ./             # Path to the directory containing the static files (use ./ for the root folder)
-  publish: ./          # Directory to be deployed, typically the same as path for static files
-  scripts:
-    build: ""          # No build process (empty for static sites)
-    deploy: ""         # No deploy command needed (empty for static sites)
-  subdomain: laaguili   # Custom subdomain (optional)
-name: laaguili          # Your project name (this can be anything)
-region: us-east-1      # AWS region
-yamlVersion: 2         # Use YAML version 2
+name: laaguili
+region: us-east-1
+yamlVersion: 2
