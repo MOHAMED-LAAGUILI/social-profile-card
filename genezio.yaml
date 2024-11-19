@@ -1,3 +1,6 @@
 name: laaguili
 region: us-east-1
 yamlVersion: 2
+
+# Static site doesn't require a runtime
+sourceDirectory: ./  # Path to your static files
