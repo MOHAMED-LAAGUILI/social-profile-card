@@ -1,3 +1,46 @@
+
+const techIcons = [
+  { src: "https://img.icons8.com/color/70/000000/html-5.png", alt: "HTML", top: "10%", left: "5%" },
+  { src: "https://img.icons8.com/color/70/000000/css3.png", alt: "CSS", top: "20%", right: "10%" },
+  { src: "https://img.icons8.com/color/70/000000/javascript.png", alt: "JavaScript", top: "30%", left: "15%" },
+  { src: "https://img.icons8.com/color/70/000000/react-native.png", alt: "React", top: "40%", right: "20%" },
+  { src: "https://img.icons8.com/color/70/000000/nodejs.png", alt: "Node.js", top: "50%", left: "40%" },
+  { src: "https://img.icons8.com/color/70/000000/mongodb.png", alt: "MongoDB", top: "60%", left: "5%" },
+  { src: "https://img.icons8.com/color/70/000000/git.png", alt: "Git", top: "70%", right: "5%" },
+  { src: "https://img.icons8.com/color/70/000000/express-js.png", alt: "Express", top: "80%", left: "30%" },
+  { src: "https://img.icons8.com/color/70/000000/sass.png", alt: "Sass", top: "40%", left: "70%" },
+  { src: "https://img.icons8.com/color/70/000000/typescript.png", alt: "TypeScript", top: "10%", right: "40%" },
+  { src: "https://img.icons8.com/color/70/000000/graphql.png", alt: "GraphQL", top: "15%", left: "50%" },
+  { src: "https://img.icons8.com/color/70/000000/docker.png", alt: "Docker", top: "25%", right: "30%" },
+  { src: "https://img.icons8.com/color/70/000000/firebase.png", alt: "Firebase", top: "35%", left: "60%" },
+  { src: "https://img.icons8.com/color/70/000000/npm.png", alt: "npm", top: "45%", right: "50%" },
+  { src: "https://img.icons8.com/color/70/000000/kubernetes.png", alt: "Kubernetes", top: "55%", left: "20%" }
+];
+
+// Function to generate tech icons dynamically
+function generateTechIcons() {
+  const container = document.getElementById('tech-icons-container');
+
+  techIcons.forEach(icon => {
+    const techIconDiv = document.createElement('div');
+    techIconDiv.classList.add('tech-icon');
+    techIconDiv.style.top = icon.top;
+    techIconDiv.style.left = icon.left;
+    techIconDiv.style.right = icon.right || '';  // Handling both 'left' and 'right' styles
+
+    const imgElement = document.createElement('img');
+    imgElement.src = icon.src;
+    imgElement.alt = icon.alt;
+
+    techIconDiv.appendChild(imgElement);
+    container.appendChild(techIconDiv);
+  });
+}
+
+// Call the function to generate icons
+generateTechIcons();
+
+
 document.addEventListener("DOMContentLoaded", function() {
     const techIcons = document.querySelectorAll('.tech-icon');
     
@@ -63,4 +106,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // Initialize the snooping effect
     startSnooping();
   });
+
+
+  
   

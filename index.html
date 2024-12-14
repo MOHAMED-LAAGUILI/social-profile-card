@@ -8,60 +8,63 @@
   <meta name="description" content="Mohamed Laaguili's official portfolio website. Explore projects and professional experience as a full-stack MERN developer." />
   <meta name="keywords" content="Mohamed Laaguili, MERN Stack, Full Stack Developer, React, Node.js, MongoDB, Portfolio, Web Development" />
   <meta name="author" content="Mohamed Laaguili" />
-  
+
   <!-- Open Graph for Social Media Preview -->
   <meta property="og:title" content="MOHAMED LAAGUILI | MERN Stack Developer & Portfolio" />
   <meta property="og:description" content="Explore Mohamed Laaguili's projects and work as a full-stack MERN developer." />
   <meta property="og:image" content="https://laaguili.app.genez.io/assets/images/userlogo.jpg" />
   <meta property="og:url" content="https://laaguili.app.genez.io" />
   <meta property="og:type" content="website" />
-  
+
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="MOHAMED LAAGUILI | MERN Stack Developer & Portfolio" />
   <meta name="twitter:description" content="Discover Mohamed Laaguili's portfolio, featuring web development projects and more." />
-  <meta name="twitter:image" content="http://laaguili.epizy.com/assets/images/userlogo.jpg" />
+  <meta name="twitter:image" content="http://laaguili.app.genez.io/assets/images/userlogo.jpg" />
 
   <!-- Favicon (Correct path and type) -->
   <link rel="icon" href="./assets/images/user32x32.jpg" type="image/jpeg" sizes="32x32">
-  
+
   <!-- Title for the Web Tab -->
-  <title>MOHAMED LAAGUILI | MERN Stack Developer</title>
+  <title>MOHAMED LAAGUILI | Full Stack Developer</title>
 
   <!-- External Stylesheets -->
   <link rel="stylesheet" href="/assets/css/global.css">
-<link rel="stylesheet" href="/assets/css/card.css">
-<link rel="stylesheet" href="/assets/css/tech-icons.css">
-<link rel="stylesheet" href="/assets/css/buttons.css">
-<link rel="stylesheet" href="/assets/css/navbar.css">
-<link rel="stylesheet" href="/assets/css/images.css">
-<link rel="stylesheet" href="/assets/css/online-badge.css">
+  <link rel="stylesheet" href="/assets/css/card.css">
+  <link rel="stylesheet" href="/assets/css/tech-icons.css">
+  <link rel="stylesheet" href="/assets/css/buttons.css">
+  <link rel="stylesheet" href="/assets/css/navbar.css">
+  <link rel="stylesheet" href="/assets/css/badge.css">
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
-  
+
   <!-- FontAwesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 
 <body class="d-flex flex-column justify-content-center align-items-center vh-100">
   <!-- Stars Background Canvas (Fixed stars animation) -->
-  <canvas id="starsCanvas"></canvas>
+  <canvas id="starsCanvas" aria-hidden="true"></canvas>
 
   <main class="d-flex justify-content-center align-items-center w-100">
     <!-- Main Card with personal details and links -->
-    <div class="card shadow-lg p-4 rounded">
-      
+    <section class="card shadow-lg p-4 rounded" aria-labelledby="main-card-title">
       <!-- Avatar and Online Badge -->
       <div class="text-center mb-3 position-relative">
-        <div class="online-badge position-absolute"></div>
-        <img src="/assets/images/userlogo.jpg" alt="avatar" class="shadow img-fluid rounded-circle animate__fadeIn image-effect" style="width: 150px; height: 150px;" />
+        <div class="online-badge position-absolute" aria-hidden="true"></div>
+        <img loading="lazy" 
+     src="/assets/images/userlogo.webp" 
+     alt="Mohamed Laaguili Avatar" 
+     class="shadow img-fluid rounded-circle animate__fadeIn image-effect" 
+     style="width: 150px; height: 150px;">
+
       </div>
 
       <!-- Name and Location -->
-      <h2 class="text-white fw-bolder animate__fadeInUp text-center">MOHAMED LAAGUILI</h2>
+      <h2 class="text-white fw-bolder animate__fadeInUp text-center" id="main-card-title">MOHAMED LAAGUILI</h2>
       <p class="animate__fadeInDown text-white"><span class="morocco-flag">🇲🇦</span> Morocco</p>
 
       <!-- Introductory Quote Section -->
@@ -71,134 +74,67 @@
 
       <!-- Contact and Portfolio Links -->
       <div class="card-body">
-        <ul class="list-unstyled">
-          <li>
-            <a href="https://laaguili-dev.app.genez.io/" class="btn btn-primary call-button w-100 mb-2 animate__fadeInRight">
-              <img src="/assets/images/favicon.png" alt="avatar" class="shadow img-fluid rounded-circle animate__fadeIn image-effect" style="width: 25px; height: 25px;" /> 
-                       Portfolio
-            </a>
-          </li>
-          <li>
-            <a href="https://github.com/MOHAMED-LAAGUILI" class="btn btn-primary call-button w-100 mb-2 animate__fadeInRight">
-              <i class="fab fa-github"></i> GitHub
-            </a>
-          </li>
-          <li>
-            <a href="https://www.linkedin.com/in/mohamedlaaguili2001/" class="btn btn-primary call-button w-100 mb-2 animate__fadeInRight">
-              <i class="fab fa-linkedin"></i> LinkedIn
-            </a>
-          </li>
-          <li>
-            <a href="https://api.whatsapp.com/send?phone=212689770809" target="_blank" class="btn btn-primary call-button w-100 mb-2 animate__fadeInRight">
-              <i class="fab fa-whatsapp"></i> WhatsApp
-            </a>
-          </li>
-          <li>
-            <a href="tel:+212689770809" class="btn btn-primary call-button w-100 mb-2 animate__fadeInRight">
-              <i class="fas fa-phone-alt"></i> Call me
-            </a>
-          </li>
+        <ul class="list-unstyled" id="dynamic-list"></ul>
 
-          <!-- Download CV Section -->
-          <li>
-            <ul class="list-unstyled">
-              <nav class="navbar navbar-expand-lg bg-gradient" data-bs-theme="dark">
-                <div class="container-fluid">
-                  <a class="navbar-brand animate__fadeInRight" href="#">
-                    <i class="fas fa-download"></i> Download CV
-                  </a>
-                  <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                  </button>
-                  <div class="navbar-collapse collapse" id="navbarColor02">
-                    <ul class="navbar-nav me-auto">
-                      <li class="nav-item"><a class="nav-link animate__fadeInRight" href="/assets/docs/CV-FR.pdf" target="_blank"><i class="fas fa-file-pdf"></i> 🇫🇷 - FR </a></li>
-                      <li class="nav-item"><a class="nav-link animate__fadeInRight" href="/assets/docs/CV-EN.pdf" target="_blank"><i class="fas fa-file-pdf"></i> 🇺🇸 - EN </a></li>
-                    </ul>
-                  </div>
-                </div>
-              </nav>
-            </ul>
-          </li>
-        </ul>
+        <section>
+          <nav class="navbar navbar-expand-md bg-gradient" data-bs-theme="dark">
+            <div class="container-fluid">
+              <a class="navbar-brand animate__fadeInRight" href="#">
+                <i class="fas fa-download"></i> Download CV
+              </a>
+              <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="navbar-collapse collapse" id="navbarColor02">
+                <ul class="navbar-nav me-auto">
+                  <li class="nav-item"><a class="nav-link animate__fadeInRight" href="/assets/docs/CV-FR.pdf"
+                      target="_blank"><i class="fas fa-file-pdf"></i> 🇫🇷 - FR </a></li>
+                  <li class="nav-item"><a class="nav-link animate__fadeInRight" href="/assets/docs/CV-EN.pdf"
+                      target="_blank"><i class="fas fa-file-pdf"></i> 🇺🇸 - EN </a></li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+        </section>
 
         <!-- Footer Section with attribution -->
-        <footer>
-          <b class="attribution text-center mt-4 text-white">😁 Coded with ❤️</b>
+        <footer aria-labelledby="footer-section">
+          <b class="attribution text-center mt-4 text-white" id="footer-section">😁 Coded with
+            <span class="online-heart">❤️</span>
+          </b>
         </footer>
       </div>
-    </div>
+    </section>
   </main>
 
   <!-- Tech Icons Floating Around the Page -->
-  <div class="tech-icons-container">
-    <div class="tech-icon" style="top: 10%; left: 5%;">
-      <img src="https://img.icons8.com/color/70/000000/html-5.png" alt="HTML" />
-    </div>
-    <div class="tech-icon" style="top: 20%; right: 10%;">
-      <img src="https://img.icons8.com/color/70/000000/css3.png" alt="CSS" />
-    </div>
-    <div class="tech-icon" style="top: 30%; left: 15%;">
-      <img src="https://img.icons8.com/color/70/000000/javascript.png" alt="JavaScript" />
-    </div>
-    <div class="tech-icon" style="top: 40%; right: 20%;">
-      <img src="https://img.icons8.com/color/70/000000/react-native.png" alt="React" />
-    </div>
-    <div class="tech-icon" style="top: 50%; left: 40%;">
-      <img src="https://img.icons8.com/color/70/000000/nodejs.png" alt="Node.js" />
-    </div>
-    <div class="tech-icon" style="top: 60%; left: 5%;">
-      <img src="https://img.icons8.com/color/70/000000/mongodb.png" alt="MongoDB" />
-    </div>
-    <div class="tech-icon" style="top: 70%; right: 5%;">
-      <img src="https://img.icons8.com/color/70/000000/git.png" alt="Git" />
-    </div>
-    <div class="tech-icon" style="top: 80%; left: 30%;">
-      <img src="https://img.icons8.com/color/70/000000/express-js.png" alt="Express" />
-    </div>
-    <div class="tech-icon" style="top: 40%; left: 70%;">
-      <img src="https://img.icons8.com/color/70/000000/sass.png" alt="Sass" />
-    </div>
-    <div class="tech-icon" style="top: 10%; right: 40%;">
-      <img src="https://img.icons8.com/color/70/000000/typescript.png" alt="TypeScript" />
-    </div>
-    <div class="tech-icon" style="top: 15%; left: 50%;">
-      <img src="https://img.icons8.com/color/70/000000/graphql.png" alt="GraphQL" />
-    </div>
-    <div class="tech-icon" style="top: 25%; right: 30%;">
-      <img src="https://img.icons8.com/color/70/000000/docker.png" alt="Docker" />
-    </div>
-    <div class="tech-icon" style="top: 35%; left: 60%;">
-      <img src="https://img.icons8.com/color/70/000000/firebase.png" alt="Firebase" />
-    </div>
-    <div class="tech-icon" style="top: 45%; right: 50%;">
-      <img src="https://img.icons8.com/color/70/000000/npm.png" alt="npm" />
-    </div>
-    <div class="tech-icon" style="top: 55%; left: 20%;">
-      <img src="https://img.icons8.com/color/70/000000/kubernetes.png" alt="Kubernetes" />
-    </div>
-  </div>
+  <div class="tech-icons-container" id="tech-icons-container" aria-hidden="true"></div>
 
   <!-- Bootstrap JS and other dependencies -->
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
-  
+  <script defer   src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script defer   src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"></script>
+  <script defer   src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
+  <script defer   src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.js"></script>
+  <script defer   src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script defer   src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
+
   <!-- Three.js for animations -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-  <script src="/assets/js/tree.js"></script>
+  <script defer  src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script defer  src="/assets/js/tree.js"></script>
 
-    <!-- animation on load and scroll -->
-  <script src="/assets/js/aos-init.js"></script>
-  
-    <!-- text types -->
-  <script src="/assets/js/typed.js"></script>
+  <!-- animation on load and scroll -->
+  <script defer  src="/assets/js/aos-init.js"></script>
 
-    <!-- floating icons -->
-  <script src="/assets/js/tech-icons.js"></script>
+  <!-- text types -->
+  <script defer   src="/assets/js/typed.js"></script>
+
+  <!-- floating icons -->
+  <script defer   src="/assets/js/tech-icons.js"></script>
+
+  <!-- Card Links -->
+  <script defer   src="/assets/js/card-body-links.js"></script>
 
 </body>
 </html>

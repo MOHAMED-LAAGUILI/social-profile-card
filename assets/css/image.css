@@ -1,9 +1,0 @@
-/* Image Hover Effect */
-.image-effect {
-    transition: transform 0.3s ease-in-out;
-  }
-  
-  .image-effect:hover {
-    transform: scale(1.08); /* Subtle scale effect on hover */
-  }
-  

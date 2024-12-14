@@ -1,0 +1,45 @@
+:root {
+  --eye-green: #1abf7a; /* Feedly-like green */
+  --dark-green: #007e58;
+  --eye-red :#8419e2;
+}
+
+.online-badge {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 18px;
+  height: 18px;
+  background-color: var(--eye-green); /* Use the Feedly-like green */
+  border-radius: 50%;
+  animation: heartbeat 1s infinite;
+  box-shadow: 0 0 0 rgba(26, 191, 122, 0.5); /* Slightly transparent green glow */
+}
+
+@keyframes heartbeat {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 rgba(26, 191, 122, 0.5); /* Pulse glow effect with Feedly green */
+  }
+  50% {
+    transform: scale(1.3);
+    box-shadow: 0 0 20px rgba(26, 191, 122, 0.8); /* Stronger pulse effect with Feedly green */
+  }
+}
+
+.online-heart {
+  color: var(--eye-red); 
+  border-radius: 50%;
+  animation: heartbeat2 1s infinite;
+  box-shadow: 0 0 0 rgb(236, 6, 37); 
+}
+@keyframes heartbeat2 {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 rgb(172, 5, 255); /* Pulse glow effect with Feedly green */
+  }
+  50% {
+    transform: scale(1.3);
+    box-shadow: 0 0 20px rgba(255, 1, 26, 0.8); /* Stronger pulse effect with Feedly green */
+  }
+}

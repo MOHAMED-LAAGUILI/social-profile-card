@@ -12,6 +12,7 @@
   }
   
   .card__quote {
-    color: #f8f8f8; /* Slightly lighter color for quotes */
+    color: #f8f8f8;
+    font-weight: lighter;
   }
   

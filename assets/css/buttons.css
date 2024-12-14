@@ -5,7 +5,7 @@
     justify-content: center;
     padding: 14px 24px;
     border-radius: 12px;
-    background: linear-gradient(135deg, #1a73e8, #6a1dff); /* Gradient background */
+    background: linear-gradient(135deg, #340569, #7a42eb); /* Gradient background */
     color: #fff;
     font-weight: 600;
     font-size: 16px;
@@ -22,23 +22,13 @@
     transition: transform 0.3s ease; /* Icon scale transition */
   }
   
-  .call-button:hover {
-    transform: translateY(-5px); /* Slight elevation effect */
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-    background: linear-gradient(135deg, #0288d1, #9c1aff); /* Slightly darker gradient */
-  }
+ 
   
   .call-button:hover i {
     transform: scale(1.1); /* Scale icon on hover */
   }
   
-  .call-button:active {
-    transform: translateY(2px); /* Slight depress effect when clicked */
-  }
-  
-  .call-button:hover {
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.6), 0 0 15px rgba(0, 123, 255, 0.7); /* Glowing effect */
-  }
+ 
   
   /* Subtle Glow Effect for Text */
   .call-button span {
@@ -66,7 +56,5 @@
     transition: color 0.3s ease;
   }
   
-  .call-button:hover i {
-    color: #000000; /* Change icon color to match glowing effect */
-  }
+ 
   

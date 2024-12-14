@@ -1,16 +1,14 @@
-
 /* Tech Icon Styling */
 .tech-icon {
   position: absolute;
   width: 70px;
   height: 70px;
+  background-color: rgba(255, 255, 255, 0.367);
+  border-radius: 50%;
+  padding: 10px;
   opacity: 0.8;
   animation: floatRandom 20s infinite ease-in-out, fadeInOut 8s infinite ease-in-out;
   transition: opacity 1s ease-in-out;
-  background-color: white;
-  border-radius: 50%;
-  padding: 10px;
-  
 }
 
 .tech-icon img {
@@ -22,15 +20,15 @@
   transform: scale(1.15); /* Hover effect on icons */
 }
 
-/* Floating and Fading Animation */
+/* Floating Animation */
 @keyframes floatRandom {
-  0% { transform: translate(0, 0); }
-  25% { transform: translate(60px, -40px); }
-  50% { transform: translate(-40px, 60px); }
+  0%, 100% { transform: translate(0, 0); }
+  25% { transform: translate(10%, 40%); }
+  50% { transform: translate(-50px, 60px); }
   75% { transform: translate(50px, -60px); }
-  100% { transform: translate(0, 0); }
 }
 
+/* Fading Animation */
 @keyframes fadeInOut {
   0%, 100% { opacity: 0; }
   10%, 90% { opacity: 1; }
