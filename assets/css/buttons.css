@@ -1,60 +1,29 @@
 /* Button Styling */
-.call-button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 14px 24px;
-    border-radius: 12px;
-    background: linear-gradient(135deg, #340569, #7a42eb); /* Gradient background */
-    color: #fff;
-    font-weight: 600;
-    font-size: 16px;
-    text-transform: uppercase;
-    text-decoration: none;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    position: relative;
-    transition: all 0.3s ease;
-    overflow: hidden; /* Prevent border overflow */
-  }
-  
-  .call-button i {
-    margin-right: 10px;
-    transition: transform 0.3s ease; /* Icon scale transition */
-  }
-  
- 
-  
-  .call-button:hover i {
-    transform: scale(1.1); /* Scale icon on hover */
-  }
-  
- 
-  
-  /* Subtle Glow Effect for Text */
-  .call-button span {
-    position: relative;
-  }
-  
-  .call-button span:after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 3px;
-    background: #000000;
-    transform: scaleX(0);
-    transition: transform 0.4s ease;
-  }
-  
-  .call-button:hover span:after {
-    transform: scaleX(1); /* Activate glowing underline on hover */
-  }
-  
-  .call-button i {
-    font-size: 18px;
-    transition: color 0.3s ease;
-  }
-  
- 
-  
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 24px;
+  border-radius: 12px;
+  color: #fff;
+  font-weight: 600;
+  font-size: 16px;
+  text-transform: uppercase;
+  text-decoration: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.438);
+  position: relative;
+  transition: all 0.3s ease;
+  overflow: hidden; /* Prevent border overflow */
+  border: 1px solid #fff; 
+  backdrop-filter: blur(5px) !important; /* Glassmorphism effect */
+
+}
+
+
+/* Button Styling */
+.button:hover {
+  box-shadow: 0 0px 15px rgba(0, 0, 0, 0.466);
+border: 2px solid #fff; 
+}
+
+

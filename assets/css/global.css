@@ -1,6 +1,6 @@
 /* Global Styles */
 body {
-  background-color: #0b0d13; /* Dark space background */
+  background-color: #000000; /* Dark space background */
   font-family: 'Roboto', sans-serif;
   overflow: hidden; /* Prevent scroll due to animation */
   position: relative;
@@ -21,13 +21,33 @@ body {
 }
 
 
+img{
+  border: 4px solid rgb(255, 255, 255);
+}
+ul li img{
+  border: 2px solid rgb(255, 255, 255);
+  margin-right: 10px;
+} 
 
+.main-card-title{
+  color: rgb(255, 255, 255) !important;
+  background-color: #00000062;
+  padding: 8px;
+
+}
 /* Responsive Adjustments */
 @media (max-width: 576px) {
   .card {
-    width: 80%;
+    width: 65%;
     margin: auto;
   }
-
+  .main-card-title{
+    color: rgb(255, 255, 255) !important;
+    background-color: #00000062;
+    padding: 5px 5px !important;
+  font-size: 25px;
+  border-radius: 10px;
+  }
 
 }
+

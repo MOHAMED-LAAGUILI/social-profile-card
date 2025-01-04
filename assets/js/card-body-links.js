@@ -1,36 +1,13 @@
 const listItems = [
     {
-      href: "https://laaguili-dev.app.genez.io/",
-      iconSrc: "/assets/images/favicon.png",
+      href: "https://laaguili-dev.app.genez.io",
+      iconSrc: "https://res.cloudinary.com/djmafhmnw/image/upload/f_auto,q_auto/v1/Portfolio/192x192",
       iconAlt: "avatar",
       text: "Portfolio",
       isImage: true,
       style: "width: 25px; height: 25px;"
     },
-    {
-      href: "https://github.com/MOHAMED-LAAGUILI",
-      icon: "fab fa-github",
-      text: "GitHub",
-      isImage: false
-    },
-    {
-      href: "https://www.linkedin.com/in/mohamedlaaguili2001/",
-      icon: "fab fa-linkedin",
-      text: "LinkedIn",
-      isImage: false
-    },
-    {
-      href: "https://api.whatsapp.com/send?phone=212689770809",
-      icon: "fab fa-whatsapp",
-      text: "WhatsApp",
-      isImage: false
-    },
-    {
-      href: "tel:+212689770809",
-      icon: "fas fa-phone-alt",
-      text: "Call me",
-      isImage: false
-    },
+  
     
   ];
   
@@ -44,7 +21,7 @@ const listItems = [
       // Create the anchor tag for the list item
       const anchor = document.createElement('a');
       anchor.href = item.href;
-      anchor.classList.add('btn', 'btn-primary', 'call-button', 'w-100', 'mb-2', 'animate__fadeInRight');
+      anchor.classList.add( 'button', 'w-100', 'mb-2', 'animate__fadeInRight');
       
       // If the list item contains an image
       if (item.isImage) {

@@ -1,167 +1,218 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const canvas = document.getElementById("starsCanvas");
-  const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
-  renderer.setSize(window.innerWidth, window.innerHeight);
-  document.body.appendChild(renderer.domElement);
+    const canvas = document.getElementById("starsCanvas");
+    const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
+    renderer.setPixelRatio(window.devicePixelRatio);
+    renderer.setSize(window.innerWidth, window.innerHeight);
 
-  // Scene and Camera setup
-  const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-  camera.position.z = 300;
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 3000);
+    camera.position.z = 1500;
 
-  // Variables for multiple layers of stars (depth)
-  const layerCount = 5; // Number of layers (depth)
-  const particleCount = 1000; // Number of stars per layer
-  const particleSize = 2; // Star size
-  const layers = [];
+    const colorPalette = [
+        0xFF6B6B, 0x4ECDC4, 0x45B7D1, 0xFFA07A, 0x98FB98, 
+        0xDDA0DD, 0x40E0D0, 0xFF69B4, 0x7B68EE, 0x00CED1
+    ];
+    const starCount = 100000;
+    const galaxyRadius = 1000;
 
-  // Generate star layers at different distances
-  for (let layerIndex = 0; layerIndex < layerCount; layerIndex++) {
-      const particles = new THREE.BufferGeometry();
-      const positions = new Float32Array(particleCount * 3);
-      const velocities = new Float32Array(particleCount * 3);
-      const colors = new Float32Array(particleCount * 3); // To store color data
+    const starField = createStarField();
+    scene.add(starField);
 
-      // Randomize positions and velocities for each layer
-      for (let i = 0; i < particleCount; i++) {
-          positions[i * 3] = (Math.random() - 0.5) * 2000;
-          positions[i * 3 + 1] = (Math.random() - 0.5) * 2000;
-          positions[i * 3 + 2] = (Math.random() - 0.5) * 2000;
+    const nebula = createNebula();
+    scene.add(nebula);
 
-          velocities[i * 3] = Math.random() * 0.1 - 0.05;
-          velocities[i * 3 + 1] = Math.random() * 0.1 - 0.05;
-          velocities[i * 3 + 2] = Math.random() * 0.1 - 0.05;
+    const blackHole = createBlackHole();
+    scene.add(blackHole);
 
-          // Random star colors: Red, Green, Blue components
-          const color = new THREE.Color(Math.random(), Math.random(), Math.random());
-          colors[i * 3] = color.r;
-          colors[i * 3 + 1] = color.g;
-          colors[i * 3 + 2] = color.b;
-      }
+    let mouseX = 0, mouseY = 0;
+    document.addEventListener('mousemove', (e) => {
+        mouseX = (e.clientX / window.innerWidth) * 2 - 1;
+        mouseY = -(e.clientY / window.innerHeight) * 2 + 1;
+    });
 
-      particles.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-      particles.setAttribute('velocity', new THREE.BufferAttribute(velocities, 3));
-      particles.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+    function createStarField() {
+        const geometry = new THREE.BufferGeometry();
+        const positions = new Float32Array(starCount * 3);
+        const colors = new Float32Array(starCount * 3);
+        const sizes = new Float32Array(starCount);
 
-      const particleMaterial = new THREE.PointsMaterial({
-          size: particleSize, // Star size
-          sizeAttenuation: true,
-          blending: THREE.AdditiveBlending,
-          transparent: true,
-          opacity: 0.8 + Math.random() * 0.2, // Random opacity for flickering effect
-          vertexColors: true, // Use vertex colors for stars
-          glow: true
-      });
+        for (let i = 0; i < starCount; i++) {
+            const i3 = i * 3;
+            const r = Math.random() * galaxyRadius;
+            const theta = Math.random() * Math.PI * 2;
+            const phi = (Math.random() - 0.5) * Math.PI * 0.25;
 
-      const starsLayer = new THREE.Points(particles, particleMaterial);
-      starsLayer.speedFactor = 0.5 + Math.random() * 0.5; // Different speeds for each layer (depth effect)
-      layers.push(starsLayer);
-      scene.add(starsLayer);
-  }
+            positions[i3] = r * Math.sin(theta) * Math.cos(phi);
+            positions[i3 + 1] = r * Math.sin(phi);
+            positions[i3 + 2] = r * Math.cos(theta) * Math.cos(phi);
 
-  // Lighting Setup
-  const ambientLight = new THREE.AmbientLight(0x444444);
-  scene.add(ambientLight);
+            const color = new THREE.Color(colorPalette[Math.floor(Math.random() * colorPalette.length)]);
+            colors[i3] = color.r;
+            colors[i3 + 1] = color.g;
+            colors[i3 + 2] = color.b;
 
-  // Mouse Interaction for parallax effect
-  let mouseX = 0, mouseY = 0;
-  document.addEventListener('mousemove', (e) => {
-      mouseX = (e.clientX / window.innerWidth) * 2 - 1;
-      mouseY = -(e.clientY / window.innerHeight) * 2 + 1;
-  });
+            sizes[i] = Math.random() * 3 + 1;
+        }
 
-  // Nebula Effect (Clouds or Glow)
-  const nebulaGeometry = new THREE.SphereGeometry(500, 60, 60);
-  const nebulaMaterial = new THREE.MeshBasicMaterial({
-      color: 0x1e1e1e,
-      opacity: 0.1,
-      transparent: true,
-      wireframe: true,
-      blending: THREE.AdditiveBlending
-  });
-  const nebula = new THREE.Mesh(nebulaGeometry, nebulaMaterial);
-  scene.add(nebula);
+        geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+        geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+        geometry.setAttribute('size', new THREE.BufferAttribute(sizes, 1));
 
-  // Flickering stars effect
-  function updateStarFlickering() {
-      layers.forEach(layer => {
-          layer.material.opacity = 0.8 + Math.random() * 0.2; // Random opacity for flickering effect
-      });
-  }
+        const material = new THREE.PointsMaterial({
+            size: 2,
+            sizeAttenuation: true,
+            vertexColors: true,
+            blending: THREE.AdditiveBlending,
+            transparent: true,
+            opacity: 0.8
+        });
 
-  // Dynamic color shift for stars
-  function updateStarColors() {
-      layers.forEach(layer => {
-          const colors = layer.geometry.attributes.color.array;
-          for (let i = 0; i < particleCount; i++) {
-              // Shift colors gradually
-              colors[i * 3] += (Math.random() - 0.5) * 0.01;
-              colors[i * 3 + 1] += (Math.random() - 0.5) * 0.01;
-              colors[i * 3 + 2] += (Math.random() - 0.5) * 0.01;
+        return new THREE.Points(geometry, material);
+    }
 
-              // Clamp the color values between 0 and 1
-              colors[i * 3] = Math.max(0, Math.min(1, colors[i * 3]));
-              colors[i * 3 + 1] = Math.max(0, Math.min(1, colors[i * 3 + 1]));
-              colors[i * 3 + 2] = Math.max(0, Math.min(1, colors[i * 3 + 2]));
-          }
-          layer.geometry.attributes.color.needsUpdate = true;
-      });
-  }
+    function createNebula() {
+        const geometry = new THREE.SphereGeometry(galaxyRadius * 0.8, 64, 64);
+        const material = new THREE.ShaderMaterial({
+            uniforms: {
+                time: { value: 0 }
+            },
+            vertexShader: `
+                varying vec3 vNormal;
+                void main() {
+                    vNormal = normal;
+                    gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+                }
+            `,
+            fragmentShader: `
+                uniform float time;
+                varying vec3 vNormal;
+                
+                float noise(vec3 p) {
+                    return fract(sin(dot(p, vec3(12.9898, 78.233, 45.5432))) * 43758.5453);
+                }
+                
+                void main() {
+                    vec3 color1 = vec3(0.5, 0.0, 0.5);
+                    vec3 color2 = vec3(0.0, 0.5, 0.5);
+                    float n = noise(vNormal * 10.0 + time * 0.1);
+                    vec3 color = mix(color1, color2, n);
+                    gl_FragColor = vec4(color, 0.1);
+                }
+            `,
+            transparent: true,
+            blending: THREE.AdditiveBlending
+        });
+        return new THREE.Mesh(geometry, material);
+    }
 
-  // Main Animation Loop
-  function animate() {
-      requestAnimationFrame(animate);
+    function createBlackHole() {
+        const geometry = new THREE.SphereGeometry(50, 32, 32);
+        const material = new THREE.ShaderMaterial({
+            uniforms: {
+                time: { value: 0 }
+            },
+            vertexShader: `
+                varying vec3 vNormal;
+                void main() {
+                    vNormal = normal;
+                    gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+                }
+            `,
+            fragmentShader: `
+                uniform float time;
+                varying vec3 vNormal;
+                
+                void main() {
+                    float intensity = pow(0.7 - dot(vNormal, vec3(0.0, 0.0, 1.0)), 4.0);
+                    gl_FragColor = vec4(0.0, 0.0, 0.0, 1.0) * intensity;
+                }
+            `,
+            transparent: true,
+            blending: THREE.AdditiveBlending
+        });
+        return new THREE.Mesh(geometry, material);
+    }
 
-      // Update particles positions with velocities
-      layers.forEach(layer => {
-          const positionsArray = layer.geometry.attributes.position.array;
-          const velocitiesArray = layer.geometry.attributes.velocity.array;
+    let time = 0;
+    function animate() {
+        requestAnimationFrame(animate);
+        time += 0.01;
 
-          for (let i = 0; i < particleCount; i++) {
-              positionsArray[i * 3] += velocitiesArray[i * 3] * layer.speedFactor;
-              positionsArray[i * 3 + 1] += velocitiesArray[i * 3 + 1] * layer.speedFactor;
-              positionsArray[i * 3 + 2] += velocitiesArray[i * 3 + 2] * layer.speedFactor;
+        const positions = starField.geometry.attributes.position.array;
+        for (let i = 0; i < starCount; i++) {
+            const i3 = i * 3;
+            const x = positions[i3];
+            const y = positions[i3 + 1];
+            const z = positions[i3 + 2];
 
-              // Reset particle position if it goes off-screen (loop effect)
-              if (positionsArray[i * 3] > 1000) positionsArray[i * 3] = -1000;
-              if (positionsArray[i * 3 + 1] > 1000) positionsArray[i * 3 + 1] = -1000;
-              if (positionsArray[i * 3 + 2] > 1000) positionsArray[i * 3 + 2] = -1000;
-          }
+            const distance = Math.sqrt(x * x + y * y + z * z);
+            const angle = 0.0005 * (galaxyRadius - distance) / galaxyRadius;
+            const cosAngle = Math.cos(angle);
+            const sinAngle = Math.sin(angle);
 
-          layer.geometry.attributes.position.needsUpdate = true;
-      });
+            positions[i3] = cosAngle * x - sinAngle * z;
+            positions[i3 + 2] = sinAngle * x + cosAngle * z;
 
-      // Update nebula rotation for subtle movement
-      nebula.rotation.x += 0.0001;
-      nebula.rotation.y += 0.0001;
+            // Black hole effect
+            const blackHoleEffect = 5 / (distance * distance);
+            positions[i3] -= x * blackHoleEffect;
+            positions[i3 + 1] -= y * blackHoleEffect;
+            positions[i3 + 2] -= z * blackHoleEffect;
 
-      // Add mouse interaction for camera movement
-      camera.position.x += (mouseX * 50 - camera.position.x) * 0.05;
-      camera.position.y += (-mouseY * 50 - camera.position.y) * 0.05;
+            // Mouse interaction
+            const dx = mouseX * galaxyRadius - x;
+            const dy = mouseY * galaxyRadius - y;
+            const mouseDistance = Math.sqrt(dx * dx + dy * dy);
+            if (mouseDistance < 200) {
+                const attractionFactor = (200 - mouseDistance) * 0.0001;
+                positions[i3] += dx * attractionFactor;
+                positions[i3 + 1] += dy * attractionFactor;
+            }
+        }
+        starField.geometry.attributes.position.needsUpdate = true;
 
-      // Rotate the scene for added effect
-      scene.rotation.x += 0.0002;
-      scene.rotation.y += 0.0002;
+        nebula.material.uniforms.time.value = time;
+        nebula.rotation.y += 0.0005;
 
-      // Update flickering effect every few frames
-      if (Math.random() < 0.1) {
-          updateStarFlickering();
-      }
+        blackHole.rotation.y += 0.01;
 
-      // Update star colors every few frames for a dynamic effect
-      if (Math.random() < 0.1) {
-          updateStarColors();
-      }
+        camera.position.x = Math.sin(time * 0.1) * 100;
+        camera.position.y = Math.cos(time * 0.1) * 100;
+        camera.lookAt(scene.position);
 
-      renderer.render(scene, camera);
-  }
+        renderer.render(scene, camera);
+    }
 
-  animate();
+    animate();
 
-  // Resize handling
-  window.addEventListener("resize", () => {
-      renderer.setSize(window.innerWidth, window.innerHeight);
-      camera.aspect = window.innerWidth / window.innerHeight;
-      camera.updateProjectionMatrix();
-  });
+    window.addEventListener("resize", () => {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+
+    // Interactive elements
+    let isExploding = false;
+    canvas.addEventListener('click', () => {
+        if (!isExploding) {
+            isExploding = true;
+            const positions = starField.geometry.attributes.position.array;
+            for (let i = 0; i < starCount; i++) {
+                const i3 = i * 3;
+                gsap.to(positions, {
+                    [i3]: positions[i3] * 1.5,
+                    [i3 + 1]: positions[i3 + 1] * 1.5,
+                    [i3 + 2]: positions[i3 + 2] * 1.5,
+                    duration: 2,
+                    ease: "power2.out",
+                    onUpdate: () => {
+                        starField.geometry.attributes.position.needsUpdate = true;
+                    },
+                    onComplete: () => {
+                        isExploding = false;
+                    }
+                });
+            }
+        }
+    });
 });
