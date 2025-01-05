@@ -1,16 +1,29 @@
-/* Card Styling */
+/* General Card Styling */
 .card {
-    position: relative;
-    z-index: 2;
-    max-width: 400px;
-    background: rgba(255, 255, 255, 0.1) !important; /* Transparent dark background */
-    border-radius: 16px;
-    box-shadow: 0 15px 25px rgba(255, 255, 255, 0.103); /* Deeper shadow */
-    backdrop-filter: blur(0.5px); /* Glassmorphism effect */
-    transition: all 0.3s ease-in-out;
-  }
-  
-  .card__quote {
-    color: white;
-    text-align: center;
-  }
+  position: relative;
+  z-index: 2;
+  max-width: 400px;
+  background: rgba(255, 255, 255, 0.1); /* Transparent dark background */
+  border-radius: 16px;
+  box-shadow: 0 15px 25px rgba(255, 255, 255, 0.1); /* Softer and subtle shadow */
+  backdrop-filter: blur(8px); /* Enhanced Glassmorphism effect */
+  overflow: hidden; /* Ensures content stays within rounded corners */
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+
+/* Quote Styling Inside Card */
+.card__quote {
+  color: #ffffff; /* Ensures text is visible on transparent background */
+  text-align: center;
+  font-size: 18px; /* Adjust font size for better readability */
+  line-height: 1.5; /* Improved text spacing */
+  padding: 20px; /* Adds consistent spacing around the quote */
+}
+
+/* Card Focus State for Accessibility */
+.card:focus {
+  outline: none;
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #00ffff; /* Highlighted glow effect for focus */
+}

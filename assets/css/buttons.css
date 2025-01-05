@@ -1,29 +1,41 @@
-/* Button Styling */
+/* General Button Styling */
 .button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 14px 24px;
+  padding: 10px 20px; /* Adjusted padding for better spacing */
   border-radius: 12px;
-  color: #fff;
+  color: #ffffff;
   font-weight: 600;
   font-size: 16px;
-  text-transform: uppercase;
   text-decoration: none;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.438);
+  background-color: rgba(0, 0, 0, 0.486);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
   position: relative;
-  transition: all 0.3s ease;
   overflow: hidden; /* Prevent border overflow */
-  border: 1px solid #fff; 
-  backdrop-filter: blur(5px) !important; /* Glassmorphism effect */
-
+  border: 1px solid #ffffff;
+  backdrop-filter: blur(50px); /* Glassmorphism effect */
+  transition: all 0.5s ease-in-out;
+  cursor: pointer; /* Indicates interactivity */
 }
 
 
-/* Button Styling */
+/* Button Hover Effect */
 .button:hover {
-  box-shadow: 0 0px 15px rgba(0, 0, 0, 0.466);
-border: 2px solid #fff; 
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+  border: 2px solid #ffffff;
+  transform: scale(1.05); /* Adds slight scaling for interactivity */
 }
 
+/* Active Button State */
+.button:active {
+  transform: scale(0.95); /* Simulates a "press" effect */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5); /* Slightly reduced shadow for depth */
+}
 
+/* Focus State for Accessibility */
+.button:focus {
+  outline: none;
+  border: 2px solid #00ffff; /* Highlighted border color for focus state */
+  box-shadow: 0 0 10px #00ffff; /* Glow effect for focused state */
+}

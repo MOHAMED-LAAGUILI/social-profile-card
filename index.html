@@ -95,27 +95,30 @@
   <link rel="stylesheet" href="/assets/css/badge.css">
 </head>
 
-<body class="d-flex flex-column justify-content-center align-items-center vh-100">
+<body class="d-flex flex-column justify-content-center align-items-center vh-100" data-aos="fade-in">
   <!-- Stars Background Canvas (Fixed stars animation) -->
   <canvas id="starsCanvas" aria-hidden="true"></canvas>
 
   <main class="d-flex justify-content-center align-items-center w-100">
     <!-- Main Card with personal details and links -->
-    <section class="card shadow-lg p-4 rounded" aria-labelledby="main-card-title">
+    <section class="card p-4">
       <!-- Avatar and Online Badge -->
       <div class="text-center mb-3 position-relative">
         <div class="online-badge position-absolute" aria-hidden="true"></div>
         <img loading="lazy"
           src="https://res.cloudinary.com/djmafhmnw/image/upload/f_auto,q_auto/v1/Portfolio/Profile-IMG-Tooned"
           alt="Mohamed Laaguili Avatar" class="shadow img-fluid rounded-circle animate__fadeIn image-effect"
-          style="width: 150px; height: 150px;">
+          style="width: 150px; height: 150px;"
+          title="Profile-IMG-Tooned"
+          >
       </div>
 
       <!-- Name and Location -->
-      <h2 class="text-white fw-bolder animate__fadeInUp text-center main-card-title">MOHAMED LAAGUILI</h2>
+      <h2 class="text-white fw-bolder text-center main-card-title">MOHAMED LAAGUILI</h2>
+      <h3 class="text-white text-center">Full Stack Web Developer</h3>
 
       <!-- Contact and Portfolio Links -->
-      <div class="card-body">
+      <div class="card-body" data-aos="zoom-inz">
         <ul class="list-unstyled" id="dynamic-list"></ul>
       </div>
     </section>
@@ -127,15 +130,14 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.0/gsap.min.js"></script>
 
+    <!-- animations -->
+    <script src="/assets/js/main.js"></script>
   <!-- Three.js for animations -->
   <script src="/assets/js/tree.js"></script>
-  <!-- animation on load and scroll -->
-  <script src="/assets/js/aos-init.js"></script>
   <!-- Card Links -->
   <script src="/assets/js/card-body-links.js"></script>
-
 </body>
 
 </html>

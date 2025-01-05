@@ -1,12 +1,10 @@
 /* Global Styles */
 body {
-  background-color: #000000; /* Dark space background */
+  background-color: #000; /* Deep dark background resembling space */
   font-family: 'Roboto', sans-serif;
-  overflow: hidden; /* Prevent scroll due to animation */
+  overflow: hidden; /* Prevent scrolling due to animations */
   position: relative;
-  -webkit-transition: all 0.9s ease-in-out;
-  -o-transition: all 0.9s ease-in-out;
-  transition: all 0.9s ease-in-out;
+  transition: all 0.9s ease-in-out; /* Unified transition property */
 }
 
 /* Stars Background Animation */
@@ -17,37 +15,41 @@ body {
   width: 100%;
   height: 100%;
   z-index: -1;
-  background-size: cover;
+  background-size: cover; /* Ensures seamless background scaling */
 }
 
-
-img{
-  border: 4px solid rgb(255, 255, 255);
+/* Image Styling */
+img {
+  border: 4px solid #fff; /* Clean white border */
+  border-radius: 8px; /* Subtle rounding for a modern look */
 }
-ul li img{
-  border: 2px solid rgb(255, 255, 255);
-  margin-right: 10px;
-} 
 
-.main-card-title{
-  color: rgb(255, 255, 255) !important;
-  background-color: #00000062;
-  padding: 8px;
-
+ul li img {
+  border: 2px solid #fff; /* Adjusted border thickness for list items */
+  margin-right: 10px; /* Consistent spacing between images */
+  border-radius: 6px; /* Matches overall design consistency */
 }
+
+/* Card Title Styling */
+.main-card-title {
+  color: #fff !important; /* White text for contrast */
+  background-color: rgba(0, 0, 0, 0.38); /* Transparent dark background */
+  padding: 8px 12px; /* Balanced padding for content */
+  font-size: 28px; /* Slightly larger font for better readability */
+  border-radius: 12px; /* Smooth rounded edges */
+  text-align: center; /* Center alignment for the title */
+}
+
 /* Responsive Adjustments */
 @media (max-width: 576px) {
   .card {
-    width: 65%;
-    margin: auto;
-  }
-  .main-card-title{
-    color: rgb(255, 255, 255) !important;
-    background-color: #00000062;
-    padding: 5px 5px !important;
-  font-size: 25px;
-  border-radius: 10px;
+    width: 65%; /* Responsive card width */
+    margin: auto; /* Center the card horizontally */
   }
 
+  .main-card-title {
+    font-size: 25px; /* Adjusted font size for smaller screens */
+    padding: 5px; /* Reduced padding for compact view */
+    border-radius: 10px; /* Slightly smaller rounding */
+  }
 }
-

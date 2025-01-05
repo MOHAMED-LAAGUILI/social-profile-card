@@ -2,10 +2,34 @@ const listItems = [
     {
       href: "https://laaguili-dev.app.genez.io",
       iconSrc: "https://res.cloudinary.com/djmafhmnw/image/upload/f_auto,q_auto/v1/Portfolio/192x192",
-      iconAlt: "avatar",
+      iconAlt: "Portfolio",
       text: "Portfolio",
       isImage: true,
-      style: "width: 25px; height: 25px;"
+      style: "width: 30px; height: 30px;"
+    },
+    {
+      href: "https://www.linkedin.com/in/mohamedlaaguili2001/",
+      iconSrc: "https://tse2.mm.bing.net/th?id=OIP.QAxeJ33Fyfd28DXfzIQ95QHaHa&pid=Api&P=0&h=180",
+      iconAlt: "LinkedIn",
+      text: "LinkedIn",
+      isImage: true,
+      style: "width: 30px; height: 30px;"
+    },
+    {
+      href: "https://www.facebook.com/profile.php?id=100014521591779",
+      iconSrc: "https://tse2.mm.bing.net/th?id=OIP.cOz92GK9w_2_VxUIWBL0ngHaHa&pid=Api&P=0&h=180",
+      iconAlt: "Facebook",
+      text: "Facebook",
+      isImage: true,
+      style: "width: 30px; height: 30px;"
+    },
+    {
+      href: "https://www.github.com/MOHAMED-LAAGUILI",
+      iconSrc: "https://logos-download.com/wp-content/uploads/2016/09/GitHub_logo.png",
+      iconAlt: "Github",
+      text: "Github",
+      isImage: true,
+      style: "width: 30px; height: 30px; background-color:white;"
     },
   
     
